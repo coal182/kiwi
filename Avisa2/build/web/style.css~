@@ -1,0 +1,80 @@
+body{
+	background-color: #FFF;
+	background-image: url("images/blancogradiente.png");	
+	background-repeat: repeat-x;
+	font-family: sans-serif;
+	}
+#container{
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;	
+	}
+#header{
+	border:1px solid brown;
+	width: 100%;
+	height: 150px;
+	background-image: url('images/1411.png');
+	}
+	#header #banner{
+	border:1px solid brown;
+	width: 100%;
+	height: 200px;
+	}
+#main{
+	border:1px solid blue;
+	width: 100%;
+
+	background-color: #DCDDDD;
+	}
+	#main #bar{
+	border:1px solid brown;
+	float: left;
+	width: 250px;
+	height: 700px;
+	margin:0 auto;
+	margin-left: 10%;
+	}
+	#main #content{
+	border:1px solid brown;
+	float: left;
+	width: 705px;
+
+
+	}
+		#content #entry{
+		border:1px solid grey;	
+		width: 660px;
+		background-color: #FFF;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		padding: 20px;
+		margin: 10px auto;
+		}
+			#content #entry #entrytitle{
+			color: brown;
+			margin-bottom: 15px;
+			}
+			#content #entry #entrycontent{
+			font-size: 12px;
+			margin-bottom: 20px;
+			}
+			#content #entry #entrycreated{
+			float: left;
+			width: 200px;
+			font-size: 12px;
+			}
+			#content #entry #entryauthor{
+			float: left;
+			width: 200px;
+			font-size: 12px;
+			}
+		
+#footer{
+	border:1px solid brown;
+	width: 100%;
+	height: 150px;
+	background-image: url('images/1411.png');
+	}
+	
+	.clean{clear: both;}
+

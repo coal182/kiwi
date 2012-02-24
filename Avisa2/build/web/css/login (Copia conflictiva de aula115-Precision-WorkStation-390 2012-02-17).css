@@ -1,0 +1,48 @@
+body{
+	background-image: url("../images/textura.png");
+	background-repeat: repeat-x;
+	background-color: #1A3515;
+	vertical-align: middle;
+	font-family: sans-serif;
+	color: white;
+	font-size: 14px;
+}
+#form{
+	margin:25% auto;
+	border:0px solid red;
+	width: 150px;	
+	}
+	#form input[type=text], #form input[type=password]{
+		background-color: transparent;
+		background-image: url("../images/fondoinput.png");
+		background-repeat: no-repeat;
+		width: 144px;
+		height: 20px;
+		border: 0px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		padding: 5px 5px 5px 10px; 
+		font-size: 12px;	
+		margin-top: 5px;
+		margin-bottom: 5px;	
+		}
+	#form label{
+		font-size: 12px;
+		margin-top: 10px;		
+		}
+	#form input[type=submit]{
+		border-radius: 20px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+	width: 100px;
+	height: 30px;
+	background-color: #909090;
+	border: 2px solid grey;
+	margin-left: 22px;
+	margin-top: 10px;
+	color: #FFF;
+		}
+	#form input[type=submit]:hover{
+		border-color: green;
+		}
