@@ -8,7 +8,7 @@ package clases;
  *
  * @author aula1-15
  */
-class Module {
+public class Module {
     private int id;
     private String name;
     private String description;

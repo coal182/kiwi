@@ -29,7 +29,7 @@ public class controller extends HttpServlet {
      */
     EntryInterface manageentry = new EntriesMySQLi();
     UserInterface manageuser = new UsersMySQLi();
-    
+    ModuleInterface managemodule = new ModulesMySQLi();
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -296,21 +296,7 @@ public class controller extends HttpServlet {
                 String name = request.getParameter("editusername");
                 String password = request.getParameter("edituserpassword");
                 String usertype=request.getParameter("editusertype");
-                /*int usertypeint = Integer.parseInt(request.getParameter("editusertype"));
-                System.out.println(usertypeint);
-                String usertype=null;
-                switch(usertypeint){
-                    case 1:
-                        usertype="Admin";
-                        break;
-                    case 2:
-                        usertype="Author";
-                        break;
-                    case 3:
-                        usertype="Registered";
-                        break;
-                }
-                */
+                
                 User u = new User(id, alias, password, name, usertype);               
                 
                 manageuser.editUser(u);
@@ -321,6 +307,38 @@ public class controller extends HttpServlet {
             
              /**
              * FIN GESTION USUARIOS---------------------------------------------
+             */
+             /**
+             *GESTION MODULOS------------------------------------------
+             */
+            /**
+             * Cargar Lista Modulos
+             */    
+            }else if(action.equals("chargemoduleslist")){ 
+                
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+            
+            /**
+             * 
+             */    
+            }else if(action.equals("newmodule")){
+                
+                String name = request.getParameter("modulename");
+                String description = request.getParameter("moduledescription");
+                String code = request.getParameter("modulecode");
+                String position = request.getParameter("moduleposition");
+                int activity = Integer.parseInt(request.getParameter("moduleactivity"));
+                int order = Integer.parseInt(request.getParameter("moduleorder"));
+                Module m = new Module(name, description, code, position, activity, order);  
+                managemodule.newModule(m);
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+            
+            /**
+             * Borrar Modules
              */
             }
             

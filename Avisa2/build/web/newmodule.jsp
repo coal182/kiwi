@@ -52,7 +52,7 @@
 		</div>
 		<div id="content">
                     <form method="post" action="controller" id="wysiwyg">
-			<label for="modulename">Module Title</label>
+			<label for="modulename">Module Name</label>
 			<input id="modulename" name="entrytitle" type="text" size="40"></input>
                     <br /><br />
                     <label for="moduledescription">Module Description</label>
@@ -82,8 +82,8 @@
 
                         
 	<br />
-        <input type="hidden" name="action" value="newentry" />
-	<input type="submit" name="save" value="Publicar" />
+        <input type="hidden" name="action" value="newmodule" />
+	<input type="submit" name="save" value="Save" />
 	<input type="reset" name="reset" value="Reset" />
 </form>
 
