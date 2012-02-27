@@ -34,7 +34,16 @@
                     <h3>New User</h3>
 		</div>
 		<div id="bar">
-                    				
+                    <ul>
+			<li><a href="entries.jsp" id="firstmenu">Entries</a></li>
+			<li><a href="pages.jsp">Pages</a></li>
+			<li><a href="polls.jsp">Polls</a></li>	
+			<li><a href="forms.jsp">Forms</a></li>
+			<li><a href="users.jsp">Users</a></li>	
+			<li><a href="modules.jsp">Modules</a></li>	
+			<li><a href="templates.jsp">Templates</a></li>	
+			<li><a href="settings.jsp" id="lastmenu">Settings</a></li>						
+		</ul>				
 		</div>
 		<div id="content">
                     <form method="post" action="controller" id="newuser">

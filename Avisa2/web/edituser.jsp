@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="clases.User"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +25,7 @@
         <div id="container">
             <div id="header">
 		<a id="btnpanel" href="backend.jsp"><h1>Kiwi: Panel de control</h1></a>
-		<a id="btnver" href="index.jsp">Ver PÃ¡gina</a>
+		<a id="btnver" href="index.jsp">Ver Página</a>
 		<span id="welcomeuser">
                     <%
                     User user = (User)session.getAttribute("user");
@@ -63,7 +63,7 @@
                             </tr>
                             <tr>
                                 <td><label for="edituserpassword">Password: </label></td>
-                                <td><input id="edituserpassword" name="edituserpassword" type="text" size="20" value="<%
+                                <td><input id="edituserpassword" name="edituserpassword" type="password" size="20" value="<%
                         String userpassword=(String)session.getAttribute("edituserpassword");
                         out.println(userpassword);
                         %>"></input></td>
@@ -77,10 +77,26 @@
                             </tr>
                             <tr>
                                 <td><label for="editusertype">Usertype: </label></td>
-                                <td><input id="editusertype" name="editusertype" type="text" size="20" value="<%
-                        String usertype=(String)session.getAttribute("editusertype");
-                        out.println(usertype);
-                        %>"" ></input></td>
+                                <td>
+                                    <select id="editusertype" name="editusertype">
+                                        <%
+                                        String usertype=(String)session.getAttribute("editusertype");
+                                        if(usertype.equals("Admin")){
+                                        out.println("<option selected>Admin</option>"+
+                                        "<option>Author</option>"+
+                                        "<option>Registered</option>");    
+                                        }else if(usertype.equals("Author")){
+                                        out.println("<option>Admin</option>"+
+                                        "<option selected>Author</option>"+
+                                        "<option>Registered</option>");     
+                                        }else if(usertype.equals("Registered")){
+                                        out.println("<option>Admin</option>"+
+                                        "<option>Author</option>"+
+                                        "<option selected>Registered</option>");     
+                                        }
+                                        %>
+                                    </select>
+                                    </td>
                             </tr>
                     </table>
                         

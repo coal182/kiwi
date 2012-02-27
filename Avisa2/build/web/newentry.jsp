@@ -5,12 +5,12 @@
 --%>
 
 <%@page import="clases.User"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>New Entry</title>
         <link href="css/reset-mayer.css" rel="stylesheet" title="default" type="text/css" />
         <link href="css/backend.css" rel="stylesheet" title="default" type="text/css" />
      
@@ -18,7 +18,7 @@
 <script type="text/javascript">
 
 /***********************************************
-* Dynamic Ajax Content- Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Dynamic Ajax Content- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
@@ -165,7 +165,7 @@ loadedobjects+=file+" " //Remember this object as being already added to page
 		</div>
 		<div id="content">
                     <form method="post" action="controller" id="wysiwyg">
-			<label for="entrytitle">TÃ­tulo del ArtÃ­culo</label>
+			<label for="entrytitle">Título del Artículo</label>
 			<input id="entrytitle" name="entrytitle" type="text" size="40"></input>
                     <br />
                         <textarea id="elm4" name="elm4" rows="15" cols="80" style="width: 400px; height: 400px;">

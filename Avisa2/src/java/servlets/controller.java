@@ -295,8 +295,22 @@ public class controller extends HttpServlet {
                 String alias = request.getParameter("edituseralias");
                 String name = request.getParameter("editusername");
                 String password = request.getParameter("edituserpassword");
-                String usertype = request.getParameter("editusertype");
-             
+                String usertype=request.getParameter("editusertype");
+                /*int usertypeint = Integer.parseInt(request.getParameter("editusertype"));
+                System.out.println(usertypeint);
+                String usertype=null;
+                switch(usertypeint){
+                    case 1:
+                        usertype="Admin";
+                        break;
+                    case 2:
+                        usertype="Author";
+                        break;
+                    case 3:
+                        usertype="Registered";
+                        break;
+                }
+                */
                 User u = new User(id, alias, password, name, usertype);               
                 
                 manageuser.editUser(u);

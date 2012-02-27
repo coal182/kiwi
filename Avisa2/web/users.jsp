@@ -7,7 +7,7 @@
 <%@page import="clases.User"%>
 <%@page import="clases.Entry"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +27,7 @@
         <div id="container">
             <div id="header">
 		<a id="btnpanel" href="backend.jsp"><h1>Kiwi: Panel de control</h1></a>
-		<a id="btnver" href="index.jsp">Ver PÃ¡gina</a>
+		<a id="btnver" href="index.jsp">Ver Página</a>
 		<span id="welcomeuser">
                     <%
                     User user = (User)session.getAttribute("user");

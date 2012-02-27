@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="clases.User"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +18,7 @@
 <script type="text/javascript">
 
 /***********************************************
-* Dynamic Ajax Content- Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Dynamic Ajax Content- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
@@ -138,7 +138,7 @@ loadedobjects+=file+" " //Remember this object as being already added to page
         <div id="container">
             <div id="header">
 		<a id="btnpanel" href="backend.jsp"><h1>Kiwi: Panel de control</h1></a>
-		<a id="btnver" href="index.jsp">Ver PÃ¡gina</a>
+		<a id="btnver" href="index.jsp">Ver Página</a>
 		<span id="welcomeuser">
                     <%
                     User user = (User)session.getAttribute("user");
