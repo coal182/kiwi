@@ -182,6 +182,22 @@ body{
 				padding: 5px;
 				vertical-align: middle;				
 				}
+                                #body #content #entrieslist #downmodule{
+                                    float: left;
+                                    display: block;
+                                    margin-right: 5px;
+                                    width: 17px;
+                                    height: 16px;
+                                    background-image: url("../images/down.png");
+                                }
+                                #body #content #entrieslist #upmodule{
+                                    float: left;
+                                    display: block;
+                                    margin-right: 5px;
+                                    width: 17px;
+                                    height: 16px;
+                                    background-image: url("../images/up.png");
+                                }
 				#body #content #entrieslist #buttons{
 					text-align: right;
 					padding: 5px;					

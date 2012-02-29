@@ -73,7 +73,8 @@
                 "<input type='hidden' name='action' value='deleteentry' /><input type='hidden' name='identry' value='"+identry+"' />"+
                 "<input type='submit' value='Delete' /></form></td></tr>");*/
         out.println("<tr><td>"+m.getName()+
-        "</td><td>Position: "+m.getPosition()+"<td>Activity: "+m.getActivity()+"</td>"+"<td>Order: "+m.getOrder()+"</td>"+
+        "</td><td>Position: "+m.getPosition()+"<td>Activity: "+m.getActivity()+"</td>"+"<td>Order: "+m.getOrder()+
+                "<a href='controller?action=downmodule&idmodule="+idmodule+"' id='downmodule'></a><a href='controller?action=upmodule&idmodule="+idmodule+"' id='upmodule'></a></td>"+
                 "</td><td id='buttons'><a href='controller?action=deletemodule&idmodule="+idmodule+"' id='deleteentry'></a>"+
                 "<a href='controller?action=editmodule&idmodule="+idmodule+"' id='editentry'></a></td></tr>");
                }

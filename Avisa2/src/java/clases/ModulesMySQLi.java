@@ -20,14 +20,14 @@ public class ModulesMySQLi implements ModuleInterface{
     @Override
     public void newModule(Module m) {
         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
-        String sql="INSERT INTO module (name, description, code, position, activity, order) VALUES "+
+        String sql="INSERT INTO module (`name`, `description`, `code`, `position`, `activity`, `order`) VALUES "+
                 "('"+m.getName()+"',"+
                 "'"+m.getDescription()+"', "+
                 "'"+m.getCode()+"', "+
                 "'"+m.getPosition()+"', "+
-                "'"+m.getActivity()+"', "+
-                "'"+m.getOrder()+
-                "')";
+                ""+m.getActivity()+", "+
+                ""+m.getOrder()+
+                ")";
                 System.out.println(sql);
                 
         bd.Ejecuta(sql);
@@ -41,12 +41,12 @@ public class ModulesMySQLi implements ModuleInterface{
         int id=m.getId();  
         
         sql = "UPDATE module SET idmodule="+
-                m.getId()+", "+"name="+"'"+m.getName()+"'"+", "+
-                "description="+"'"+m.getDescription()+"'"+", "+
-                "code="+"'"+m.getCode()+"'"+", "+
-                "position="+"'"+m.getPosition()+"'"+", "+
-                "activity="+"'"+m.getActivity()+"'"+", "+
-                "order="+"'"+m.getOrder()+"'"+
+                m.getId()+", "+"`name`="+"'"+m.getName()+"'"+", "+
+                "`description`="+"'"+m.getDescription()+"'"+", "+
+                "`code`="+"'"+m.getCode()+"'"+", "+
+                "`position`="+"'"+m.getPosition()+"'"+", "+
+                "`activity`="+"'"+m.getActivity()+"'"+", "+
+                "`order`="+"'"+m.getOrder()+"'"+
 
                 " WHERE idmodule="+id+" ";          
  
@@ -72,7 +72,7 @@ public class ModulesMySQLi implements ModuleInterface{
     public List<Module> getModules() {
         List<Module> lista = new ArrayList<Module>();
         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
-           String sql="SELECT * FROM module";
+           String sql="SELECT * FROM module ORDER BY `order` ASC";
             ResultSet rs = bd.Select(sql);
         try {
         

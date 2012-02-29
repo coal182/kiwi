@@ -340,6 +340,81 @@ public class controller extends HttpServlet {
             /**
              * Borrar Modules
              */
+            }else if(action.equals("deletemodule")){ 
+
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+                managemodule.deleteModule(mod);
+
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+            
+            /**
+             * Cargar Modulos en Editar Modulos
+             */    
+            }else if(action.equals("editmodule")){ 
+                
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+            
+                String name = mod.getName();
+                String description = mod.getDescription();
+                String code = mod.getCode();
+                String position = mod.getPosition();
+                int activity = mod.getActivity();
+                int order = mod.getOrder();
+                request.getSession().setAttribute("editmoduleid", idmodule);
+                request.getSession().setAttribute("editmodulename", name);
+                request.getSession().setAttribute("editmoduledescription", description);
+                request.getSession().setAttribute("editmodulecode", code);
+                request.getSession().setAttribute("editmoduleposition", position);
+                request.getSession().setAttribute("editmoduleactivity", activity);
+                request.getSession().setAttribute("editmoduleorder", order);
+                response.sendRedirect("editmodule.jsp");
+            
+          
+            }else if(action.equals("upmodule")){ 
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+                int order = mod.getOrder();
+                int neworder= order-1;
+                System.out.println("Nuevo orden: "+neworder);
+                mod.setOrder(neworder);
+                managemodule.editModule(mod);
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+                
+            }else if(action.equals("downmodule")){ 
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+                int order = mod.getOrder();
+                int neworder= order+1;
+                System.out.println("Nuevo orden: "+neworder);
+                mod.setOrder(neworder);
+                managemodule.editModule(mod);
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+                
+            }else if(action.equals("updatemodule")){                                         
+                int id = Integer.parseInt(request.getParameter("idmodule"));
+                System.out.println("id: "+id);
+                String name = request.getParameter("modulename");
+                String description = request.getParameter("moduledescription");
+                String code = request.getParameter("modulecode");
+                String position = request.getParameter("moduleposition");
+                int activity = Integer.parseInt(request.getParameter("moduleactivity"));
+                int order = Integer.parseInt(request.getParameter("moduleorder"));
+                
+                Module m = new Module(id, name, description, code, position, activity, order);               
+                
+                managemodule.editModule(m);
+
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
             }
             
             

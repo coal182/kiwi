@@ -53,10 +53,10 @@
 		<div id="content">
                     <form method="post" action="controller" id="wysiwyg">
 			<label for="modulename">Module Name</label>
-			<input id="modulename" name="entrytitle" type="text" size="40"></input>
+			<input id="modulename" name="modulename" type="text" size="40"></input>
                     <br /><br />
                     <label for="moduledescription">Module Description</label>
-                        <textarea id="moduledescription" name="modulecode" rows="5" cols="80">
+                        <textarea id="moduledescription" name="moduledescription" rows="5" cols="80">
                             
                         </textarea>
                     <br /><br />
@@ -73,11 +73,11 @@
                         <option>Bottom</option>
                     </select>
                     <br /><br />
-                    <input type="radio" id="moduleactivity" name="moduleactivity"> Enabled
+                    <input type="radio" id="moduleactivity" name="moduleactivity" value="1"> Enabled
                     <br />
-                    <input type="radio" id="moduleactivity" name="moduleactivity"> Disabled
+                    <input type="radio" id="moduleactivity" name="moduleactivity" value="0"> Disabled
                     <br /><br />
-                    Order: <input type="text" id="moduleorder" name="moduleorder" />
+                    Order: <input type="text" id="moduleorder" name="moduleorder" value="1" />
                     
 
                         
