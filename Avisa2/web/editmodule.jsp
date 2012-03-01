@@ -61,7 +61,9 @@
                         %>    
                         </textarea>
                     <br /><br />
+                    
                         <label for="modulecode">Module Code</label>
+                        <p>* Recuerda cambiar las comillas simples(') por dos comillas simples('')</p>
                         <textarea id="modulecode" name="modulecode" rows="10" cols="80"><%String modulecode=(String)session.getAttribute("editmodulecode");
                         out.println(modulecode); 
                         %>      
@@ -70,26 +72,26 @@
                     <label for="moduleposition">Module Position</label>
                     <select id="moduleposition" name="moduleposition">
                         <%String moduleposition=(String)session.getAttribute("editmoduleposition");
-                                     if(moduleposition.equals("Top")){
-                                     out.println("<option selected>Top</option>"+
-                                     "<option>Right</option>"+
-                                     "<option>Bottom</option>"+
-                                     "<option>Left</option>");    
-                                     }else if(moduleposition.equals("Right")){
-                                     out.println("<option>Top</option>"+
-                                     "<option selected>Right</option>"+
-                                     "<option>Bottom</option>"+
-                                     "<option>Left</option>");     
-                                     }else if(moduleposition.equals("Bottom")){
-                                     out.println("<option>Top</option>"+
-                                     "<option>Right</option>"+
-                                     "<option selected>Bottom</option>"+
-                                     "<option>Left</option>");     
+                                     if(moduleposition.equals("header")){
+                                     out.println("<option selected>header</option>"+
+                                     "<option>nav</option>"+
+                                     "<option>content</option>"+
+                                     "<option>footer</option>");    
+                                     }else if(moduleposition.equals("nav")){
+                                     out.println("<option>header</option>"+
+                                     "<option selected>nav</option>"+
+                                     "<option>content</option>"+
+                                     "<option>footer</option>");     
+                                     }else if(moduleposition.equals("content")){
+                                     out.println("<option>header</option>"+
+                                     "<option>nav</option>"+
+                                     "<option selected>content</option>"+
+                                     "<option>footer</option>");     
                                      }else if(moduleposition.equals("Left")){
-                                     out.println("<option>Top</option>"+
-                                     "<option>Right</option>"+
-                                     "<option>Bottom</option>"+
-                                     "<option selected>Left</option>");     
+                                     out.println("<option>header</option>"+
+                                     "<option>nav</option>"+
+                                     "<option>content</option>"+
+                                     "<option selected>footer</option>");     
                                      }      
                         %>  
                     </select>

@@ -61,16 +61,17 @@
                         </textarea>
                     <br /><br />
                         <label for="modulecode">Module Code</label>
+                        <p>* Recuerda cambiar las comillas simples(') por dos comillas simples('')</p>
                         <textarea id="modulecode" name="modulecode" rows="10" cols="80">
                             
                         </textarea>
                     <br /><br />
                     <label for="moduleposition">Module Position</label>
                     <select id="moduleposition" name="moduleposition">
-                        <option>Top</option>
-                        <option>Right</option>
-                        <option>Left</option>
-                        <option>Bottom</option>
+                        <option>header</option>
+                        <option>nav</option>
+                        <option>content</option>
+                        <option>footer</option>
                     </select>
                     <br /><br />
                     <input type="radio" id="moduleactivity" name="moduleactivity" value="1"> Enabled

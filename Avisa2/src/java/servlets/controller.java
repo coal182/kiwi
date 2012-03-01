@@ -137,11 +137,19 @@ public class controller extends HttpServlet {
             /**
              * Cargar Entradas en HOME
              */
-            }else if(action.equals("chargeentries")){ 
-                
+            }else if(action.equals("chargeentries")){      
                 List<Entry> entrylist = manageentry.getEntries();
                 request.getSession().setAttribute("entrylist", entrylist);
+                List<Module> headermodules = managemodule.getModules("header");
+                List<Module> navmodules = managemodule.getModules("nav");
+                List<Module> contentmodules = managemodule.getModules("content");
+                List<Module> footermodules = managemodule.getModules("footer");
+                request.getSession().setAttribute("headermodules", headermodules);
+                request.getSession().setAttribute("navmodules", navmodules);
+                request.getSession().setAttribute("contentmodules", contentmodules);
+                request.getSession().setAttribute("footermodules", footermodules);
                 response.sendRedirect("home.jsp");
+                
             
             /**
              * Cargar Entradas en BACKEND
@@ -399,7 +407,7 @@ public class controller extends HttpServlet {
                 response.sendRedirect("modules.jsp");
                 
             }else if(action.equals("updatemodule")){                                         
-                int id = Integer.parseInt(request.getParameter("idmodule"));
+                int id = Integer.parseInt(request.getParameter("moduleid"));
                 System.out.println("id: "+id);
                 String name = request.getParameter("modulename");
                 String description = request.getParameter("moduledescription");
@@ -415,7 +423,17 @@ public class controller extends HttpServlet {
                 List<Module> moduleslist = managemodule.getModules();
                 request.getSession().setAttribute("moduleslistback", moduleslist);
                 response.sendRedirect("modules.jsp");
-            }
+            }else if(action.equals("chargemodules")){
+                List<Module> headermodules =managemodule.getModules("header");
+                List<Module> navmodules =managemodule.getModules("nav");
+                List<Module> contentmodules =managemodule.getModules("content");
+                List<Module> footermodules =managemodule.getModules("footer");
+                request.getSession().setAttribute("headermodules", headermodules);
+                request.getSession().setAttribute("navmodules", navmodules);
+                request.getSession().setAttribute("contentmodules", contentmodules);
+                request.getSession().setAttribute("footermodules", footermodules);
+                response.sendRedirect("home.jsp");
+            } 
             
             
             

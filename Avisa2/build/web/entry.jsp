@@ -23,7 +23,7 @@
         </div>
         
         <div id="main">
-            <div id="bar">
+            <div id="nav">
                 <div id="form">
                     <form action="controller" method="POST">
                         <table>

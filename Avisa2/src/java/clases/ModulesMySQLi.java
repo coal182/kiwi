@@ -127,5 +127,37 @@ public class ModulesMySQLi implements ModuleInterface{
         }
         return mod;
     }
+
+    @Override
+    public List<Module> getModules(String position) {
+        List<Module> lista = new ArrayList<Module>();
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+           String sql="SELECT * FROM module WHERE `position`='"+position+"' ORDER BY `order` ASC";
+           System.err.println(sql);
+            ResultSet rs = bd.Select(sql);
+        try {
+        
+            while (rs.next() ){
+                int id = rs.getInt("idmodule");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String code = rs.getString("code");
+                position = rs.getString("position");
+                int activity = rs.getInt("activity");
+                int order = rs.getInt("order");
+                
+                                   
+                Module mod = new Module(id, name, description, code, position, activity, order);
+                
+                lista.add(mod);
+            
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersMySQLi.class.getName()).log(Level.SEVERE, null, ex);
+        }                   
+            bd.cerrarBaseDatos();
+
+            return lista;
+    }
     
 }

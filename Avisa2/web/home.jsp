@@ -4,6 +4,7 @@
     Author     : usuario
 --%>
 
+<%@page import="clases.Module"%>
 <%@page import="clases.Entry"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
@@ -20,10 +21,32 @@
         <div id="container">
         <div id="header">
             <div id="banner"><h1>AVISA2</h1></div>
+            <%
+                List<Module> headermodules = (List<Module>)session.getAttribute("headermodules");
+                if(headermodules==null){
+                    out.println("");
+                }
+                for(Module m : headermodules){
+                    if(m.getActivity()==1){
+                    out.println("<div id='headermodule'>"+m.getCode()+"</div>");
+                    }
+                }
+                %>
         </div>
         
         <div id="main">
-            <div id="bar">
+            <div id="nav">
+                <%
+                List<Module> navmodules = (List<Module>)session.getAttribute("navmodules");
+                if(navmodules==null){
+                    out.println("");
+                }
+                for(Module m : navmodules){
+                    if(m.getActivity()==1){
+                    out.println("<div id='navmodule'>"+m.getCode()+"</div>");
+                    }
+                }
+                %>
                 <div id="form">
                     <form action="controller" method="POST">
                         <table>
@@ -46,7 +69,17 @@
                 <a href="home.jsp">Home</a>
             </div>
             <div id="content">
-                
+                <%
+                List<Module> contentmodules = (List<Module>)session.getAttribute("contentmodules");
+                if(contentmodules==null){
+                    out.println("");
+                }
+                for(Module m : contentmodules){
+                    if(m.getActivity()==1){
+                    out.println("<div id='contentmodule'>"+m.getCode()+"</div>");
+                    }
+                }
+                %>
                 <%
                 List<Entry> entrylist = (List<Entry>)session.getAttribute("entrylist");
                 if(entrylist==null){
@@ -59,11 +92,25 @@
                 "</div><div id='entrycreated'><b>Creado: </b>"+e.getCreated()+
                 "</div><div id='entryauthor'><b>Autor: </b>"+e.getAuthor().getName()+"</div></div>");
                }
+                           
         %>
             </div>
             <div class="clean"></div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+            <%
+                List<Module> footermodules = (List<Module>)session.getAttribute("footermodules");
+                if(footermodules==null){
+                    out.println("");
+                }
+                for(Module m : footermodules){
+                    if(m.getActivity()==1){
+                    out.println("<div id='footermodule'>"+m.getCode()+"</div>");
+                    }
+                }
+                %>
+        </div>
         </div>
     </body>
+    <link href="css/style.css" rel="stylesheet" title="default" type="text/css" />
 </html>

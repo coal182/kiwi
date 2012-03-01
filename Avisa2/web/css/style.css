@@ -30,13 +30,16 @@ body{
 	margin: 0 auto;
 	background-color: #DCDDDD;
 	}
-	#main #bar{
+	#main #nav{
 	border:0px solid brown;
 	float: left;
 	width: 240px;
 	height: 700px;
 	margin:0 auto;
 	}
+        #main #nav #navmodule{
+            margin:10px;
+        }
 	#main #content{
 	border:0px solid brown;
 	float: left;

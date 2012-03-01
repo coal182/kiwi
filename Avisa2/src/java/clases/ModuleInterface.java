@@ -16,5 +16,6 @@ public interface ModuleInterface {
     public void editModule(Module m);
     public void deleteModule(Module m);
     public List<Module> getModules();
+    public List<Module> getModules(String position);
     public Module getModule(int id);
 }
