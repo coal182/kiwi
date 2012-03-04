@@ -18,9 +18,21 @@
         <link href="css/style.css" rel="stylesheet" title="default" type="text/css" />
     </head>
     <body>
+        <%
+            List<Entry> entries = (List<Entry>)session.getAttribute("entrylist");
+                if(entries==null){
+                    %>
+                    <jsp:forward page='controller'>
+                    <jsp:param name='action' value='chargeentries' />
+                    </jsp:forward>
+        <%       
+                    }else{
+             %>
+             
+     
         <div id="container">
         <div id="header">
-            <div id="banner"><h1>AVISA2</h1></div>
+            <div id="banner"></div>
             <%
                 List<Module> headermodules = (List<Module>)session.getAttribute("headermodules");
                 if(headermodules==null){
@@ -47,24 +59,6 @@
                     }
                 }
                 %>
-                <div id="form">
-                    <form action="controller" method="POST">
-                        <table>
-                            <tr>
-                                <td><label for="username">User: </label></td>
-                                <td><input type="text" name="username" size="15" maxlength="15" required /></td>
-                            </tr>
-                            <tr>
-                                <td><label for="username">Password: </label></td>
-                                <td><input type="password" name="userpassword" size="15" maxlength="15" required /></td>
-                            </tr>
-                            <tr>
-                                <td><input type="hidden" name="action" value="login" /></td>
-                                <td><input type="submit" value="Login" /></td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
                 <a href="backend.jsp">Backend</a> 
                 <a href="home.jsp">Home</a>
             </div>
@@ -85,8 +79,13 @@
                 if(entrylist==null){
                     out.println("<jsp:forward page='controller'><jsp:param name='action' value='chargeentries' /></jsp:forward>");
                 }
+                int nentries= Integer.parseInt((String)session.getAttribute("nentries"));
+                int i= 0;
                 for(Entry e : entrylist){
-       
+                    if(i>=nentries){
+                        break;
+                    }
+                    i++;
         out.println("<div id='entry'><a href='controller?action=seeentry&identry="+e.getId()+"'><h1 id='entrytitle'>"+e.getTitle()+
         "</h1></a><div id='entrycontent'>"+e.getContent()+
                 "</div><div id='entrycreated'><b>Creado: </b>"+e.getCreated()+
@@ -108,7 +107,11 @@
                     out.println("<div id='footermodule'>"+m.getCode()+"</div>");
                     }
                 }
+                               }
                 %>
+                <% 
+                String refresh=null;
+                session.setAttribute("entrylist", refresh);%>
         </div>
         </div>
     </body>

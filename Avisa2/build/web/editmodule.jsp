@@ -57,17 +57,13 @@
                     <br /><br />
                     <label for="moduledescription">Module Description</label>
                         <textarea id="moduledescription" name="moduledescription" rows="5" cols="80"><%String moduledescription=(String)session.getAttribute("editmoduledescription");
-                        out.println(moduledescription); 
-                        %>    
-                        </textarea>
+                        out.println(moduledescription);%></textarea>
                     <br /><br />
                     
                         <label for="modulecode">Module Code</label>
                         <p>* Recuerda cambiar las comillas simples(') por dos comillas simples('')</p>
                         <textarea id="modulecode" name="modulecode" rows="10" cols="80"><%String modulecode=(String)session.getAttribute("editmodulecode");
-                        out.println(modulecode); 
-                        %>      
-                        </textarea>
+                        out.println(modulecode);%></textarea>
                     <br /><br />
                     <label for="moduleposition">Module Position</label>
                     <select id="moduleposition" name="moduleposition">
@@ -87,7 +83,7 @@
                                      "<option>nav</option>"+
                                      "<option selected>content</option>"+
                                      "<option>footer</option>");     
-                                     }else if(moduleposition.equals("Left")){
+                                     }else if(moduleposition.equals("footer")){
                                      out.println("<option>header</option>"+
                                      "<option>nav</option>"+
                                      "<option>content</option>"+

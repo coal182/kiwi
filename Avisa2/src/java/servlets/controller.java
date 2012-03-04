@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.catalina.Session;
 
 /**
  *
@@ -30,6 +31,7 @@ public class controller extends HttpServlet {
     EntryInterface manageentry = new EntriesMySQLi();
     UserInterface manageuser = new UsersMySQLi();
     ModuleInterface managemodule = new ModulesMySQLi();
+    SettingInterface managesettings = new SettingsMySQL();
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -144,13 +146,14 @@ public class controller extends HttpServlet {
                 List<Module> navmodules = managemodule.getModules("nav");
                 List<Module> contentmodules = managemodule.getModules("content");
                 List<Module> footermodules = managemodule.getModules("footer");
+                String nentries = managesettings.getSetting("nentries").getValue();
+                request.getSession().setAttribute("nentries", nentries);
                 request.getSession().setAttribute("headermodules", headermodules);
                 request.getSession().setAttribute("navmodules", navmodules);
                 request.getSession().setAttribute("contentmodules", contentmodules);
                 request.getSession().setAttribute("footermodules", footermodules);
                 response.sendRedirect("home.jsp");
-                
-            
+
             /**
              * Cargar Entradas en BACKEND
              */
@@ -382,6 +385,30 @@ public class controller extends HttpServlet {
                 response.sendRedirect("editmodule.jsp");
             
           
+            }else if(action.equals("enablemodule")){ 
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+                int activity = mod.getActivity();
+                int newactivity= 1;
+                System.out.println("Nuevo orden: "+newactivity);
+                mod.setActivity(newactivity);
+                managemodule.editModule(mod);
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+                
+            }else if(action.equals("disablemodule")){ 
+                int idmodule=Integer.parseInt(request.getParameter("idmodule"));
+                Module mod = managemodule.getModule(idmodule);
+                int activity = mod.getOrder();
+                int newactivity= 0;
+                System.out.println("Nuevo orden: "+newactivity);
+                mod.setActivity(newactivity);
+                managemodule.editModule(mod);
+                List<Module> moduleslist = managemodule.getModules();
+                request.getSession().setAttribute("moduleslistback", moduleslist);
+                response.sendRedirect("modules.jsp");
+                
             }else if(action.equals("upmodule")){ 
                 int idmodule=Integer.parseInt(request.getParameter("idmodule"));
                 Module mod = managemodule.getModule(idmodule);
@@ -433,7 +460,18 @@ public class controller extends HttpServlet {
                 request.getSession().setAttribute("contentmodules", contentmodules);
                 request.getSession().setAttribute("footermodules", footermodules);
                 response.sendRedirect("home.jsp");
-            } 
+            }else if(action.equals("chargesettings")){
+                List<Setting> settinglist = managesettings.getSettings();
+                request.getSession().setAttribute("settinglist", settinglist);
+                response.sendRedirect("settings.jsp");
+            }else if(action.equals("updatesettings")){
+                int settingid = Integer.parseInt(request.getParameter("settingid"));
+                String settingname = request.getParameter("settingname");
+                String settingvalue = request.getParameter("settingvalue");
+                Setting set = new Setting(settingid, settingname, settingvalue);
+                managesettings.editSetting(set);
+                response.sendRedirect("controller?action=chargesettings");
+            }  
             
             
             
@@ -484,4 +522,5 @@ public class controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
 }

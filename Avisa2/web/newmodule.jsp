@@ -56,15 +56,11 @@
 			<input id="modulename" name="modulename" type="text" size="40"></input>
                     <br /><br />
                     <label for="moduledescription">Module Description</label>
-                        <textarea id="moduledescription" name="moduledescription" rows="5" cols="80">
-                            
-                        </textarea>
+                        <textarea id="moduledescription" name="moduledescription" rows="5" cols="80"></textarea>
                     <br /><br />
                         <label for="modulecode">Module Code</label>
                         <p>* Recuerda cambiar las comillas simples(') por dos comillas simples('')</p>
-                        <textarea id="modulecode" name="modulecode" rows="10" cols="80">
-                            
-                        </textarea>
+                        <textarea id="modulecode" name="modulecode" rows="10" cols="80"></textarea>
                     <br /><br />
                     <label for="moduleposition">Module Position</label>
                     <select id="moduleposition" name="moduleposition">

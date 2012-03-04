@@ -72,7 +72,7 @@ public class ModulesMySQLi implements ModuleInterface{
     public List<Module> getModules() {
         List<Module> lista = new ArrayList<Module>();
         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
-           String sql="SELECT * FROM module ORDER BY `order` ASC";
+           String sql="SELECT * FROM module ORDER BY `position` ASC, `activity` DESC, `order` ASC";
             ResultSet rs = bd.Select(sql);
         try {
         

@@ -103,21 +103,13 @@ public class EntriesMySQLi implements EntryInterface{
         try {
             
                String sql="SELECT * FROM entry WHERE identry="+id;
-               System.err.println(sql);
                 ResultSet rs = bd.Select(sql);
-                System.err.println(sql);
-                System.err.println(rs);
                 if(rs.next()){
                 id = rs.getInt("identry");
-                System.err.println(id);
                 String title = rs.getString("title");
-                System.err.println(title);
                 String content = rs.getString("content");
-                System.err.println(content);
                 Date created = rs.getDate("created");
-                System.err.println(created);
                 int iduser = rs.getInt("iduser");
-                System.err.println(iduser);
                 User user = manage.getUser(iduser);
                 
                 ent = new Entry(id,title,content,user,created);

@@ -165,7 +165,7 @@ if(session.getAttribute("user")==null){
 		</ul>				
 		</div>
                     <div id="content">
-                			
+                        <div id="backendlogo"></div>		
                     </div>
                     <div class="clean"></div>
                 </div>
