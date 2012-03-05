@@ -226,7 +226,16 @@ public class controller extends HttpServlet {
 
                 identry=Integer.parseInt(request.getParameter("identry"));
                 Entry ent = manageentry.getEntry(identry);
-
+                
+                List<Module> headermodules = managemodule.getModules("header");
+                List<Module> navmodules = managemodule.getModules("nav");
+                List<Module> contentmodules = managemodule.getModules("content");
+                List<Module> footermodules = managemodule.getModules("footer");
+                request.getSession().setAttribute("headermodules", headermodules);
+                request.getSession().setAttribute("navmodules", navmodules);
+                request.getSession().setAttribute("contentmodules", contentmodules);
+                request.getSession().setAttribute("footermodules", footermodules);
+                
                 request.getSession().setAttribute("entry", ent);
                 response.sendRedirect("entry.jsp");
             /**

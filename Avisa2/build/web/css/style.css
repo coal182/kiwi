@@ -1,5 +1,5 @@
 body{
-	background-color: #303030;
+	background-color: #DCDDDD;
 	/*background-image: url("../images/blancogradiente.png");	*/
 	background-repeat: repeat-x;
 	font-family: sans-serif;
@@ -15,13 +15,13 @@ body{
 /*	height: 216px;*/
 	color: #FFF;
         text-align: center;
+        background-image: url('../images/1411.png');
 	}
 	#header #banner{
 	border:0px solid brown;
-	border-bottom:10px solid #303030;
 	background-image: url('../images/banner.png');
 	width: 960px;
-	height: 208px;
+	height: 200px;
 	margin: 0 auto;
 	}
 #main{
@@ -105,10 +105,10 @@ body{
 			}
 		
 #footer{
-	border:0px solid brown;
+	border-top:1px solid grey;
 	width: 100%;
 	height: 150px;
-	background-image: url('../images/1411.png');
+	background-color:#202020;
 	}
 	
 	.clean{clear: both;}
