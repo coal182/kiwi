@@ -20,6 +20,8 @@ body{
 	#header #banner{
 	border:0px solid brown;
 	background-image: url('../images/banner.png');
+	background-repeat: no-repeat;
+	background-position: 70% 50%;
 	width: 960px;
 	height: 200px;
 	margin: 0 auto;
@@ -32,7 +34,7 @@ body{
 	background-color: #DCDDDD;
 	}
 	#main #nav{
-	border:0px solid brown;
+	border-right:1px solid silver;
 	float: left;
 	width: 240px;
 	height: 700px;

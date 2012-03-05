@@ -16,8 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.catalina.Session;
+
 
 /**
  *
@@ -348,6 +347,7 @@ public class controller extends HttpServlet {
                 String name = request.getParameter("modulename");
                 String description = request.getParameter("moduledescription");
                 String code = request.getParameter("modulecode");
+                code = code.replace("'", "''");
                 String position = request.getParameter("moduleposition");
                 int activity = Integer.parseInt(request.getParameter("moduleactivity"));
                 int order = Integer.parseInt(request.getParameter("moduleorder"));
@@ -381,6 +381,7 @@ public class controller extends HttpServlet {
                 String name = mod.getName();
                 String description = mod.getDescription();
                 String code = mod.getCode();
+                code = code.replace("'", "''");
                 String position = mod.getPosition();
                 int activity = mod.getActivity();
                 int order = mod.getOrder();
@@ -399,8 +400,10 @@ public class controller extends HttpServlet {
                 Module mod = managemodule.getModule(idmodule);
                 int activity = mod.getActivity();
                 int newactivity= 1;
-                System.out.println("Nuevo orden: "+newactivity);
                 mod.setActivity(newactivity);
+                String code = mod.getCode();
+                code = code.replace("'", "''");
+                mod.setCode(code);
                 managemodule.editModule(mod);
                 List<Module> moduleslist = managemodule.getModules();
                 request.getSession().setAttribute("moduleslistback", moduleslist);
@@ -413,6 +416,9 @@ public class controller extends HttpServlet {
                 int newactivity= 0;
                 System.out.println("Nuevo orden: "+newactivity);
                 mod.setActivity(newactivity);
+                String code = mod.getCode();
+                code = code.replace("'", "''");
+                mod.setCode(code);
                 managemodule.editModule(mod);
                 List<Module> moduleslist = managemodule.getModules();
                 request.getSession().setAttribute("moduleslistback", moduleslist);
@@ -423,8 +429,10 @@ public class controller extends HttpServlet {
                 Module mod = managemodule.getModule(idmodule);
                 int order = mod.getOrder();
                 int neworder= order-1;
-                System.out.println("Nuevo orden: "+neworder);
                 mod.setOrder(neworder);
+                String code = mod.getCode();
+                code = code.replace("'", "''");
+                mod.setCode(code);
                 managemodule.editModule(mod);
                 List<Module> moduleslist = managemodule.getModules();
                 request.getSession().setAttribute("moduleslistback", moduleslist);
@@ -435,8 +443,10 @@ public class controller extends HttpServlet {
                 Module mod = managemodule.getModule(idmodule);
                 int order = mod.getOrder();
                 int neworder= order+1;
-                System.out.println("Nuevo orden: "+neworder);
                 mod.setOrder(neworder);
+                String code = mod.getCode();
+                code = code.replace("'", "''");
+                mod.setCode(code);
                 managemodule.editModule(mod);
                 List<Module> moduleslist = managemodule.getModules();
                 request.getSession().setAttribute("moduleslistback", moduleslist);
@@ -480,7 +490,18 @@ public class controller extends HttpServlet {
                 Setting set = new Setting(settingid, settingname, settingvalue);
                 managesettings.editSetting(set);
                 response.sendRedirect("controller?action=chargesettings");
-            }  
+                
+            }else if(action.equals("sendmail")){
+                int settingid = Integer.parseInt(request.getParameter("settingid"));
+                String name = request.getParameter("name");
+                String email = request.getParameter("email");
+                String tlf = request.getParameter("tlf");
+                String subject = request.getParameter("subject");
+                String message = request.getParameter("message");
+                
+                
+                response.sendRedirect("contacto.jsp?state=sent");
+            }    
             
             
             

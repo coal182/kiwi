@@ -174,7 +174,7 @@ body{
 				box-shadow: 0 0 10px #000;			
 				}
 				#body #content #entrieslist tr{
-				border: 2px solid green;
+				border: 0px solid silver;
 				border-radius: 5px;
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
@@ -182,7 +182,7 @@ body{
 
 				}
 				#body #content #entrieslist td{
-				border-bottom: 1px solid green;
+				border-bottom: 1px solid silver;
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
 				border-radius: 5px;

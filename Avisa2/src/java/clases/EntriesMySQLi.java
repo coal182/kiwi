@@ -20,7 +20,10 @@ public class EntriesMySQLi implements EntryInterface{
     UserInterface manage = new UsersMySQLi();
     @Override
     public void newEntry(Entry e) {
-         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        String content=e.getContent();
+        content = content.replace("'", "''");
+        e.setContent(content);
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
         String sql="INSERT INTO entry (title, content, created, iduser) VALUES "+
                 "('"+e.getTitle()+"',"+
                 "'"+e.getContent()+"', "+
@@ -35,6 +38,9 @@ public class EntriesMySQLi implements EntryInterface{
 
     @Override
     public void editEntry(Entry e) {
+        String content=e.getContent();
+        content = content.replace("'", "''");
+        e.setContent(content);
         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
         String sql;
         int id=e.getId();  

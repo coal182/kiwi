@@ -1,7 +1,7 @@
 <%-- 
-    Document   : entry
+    Document   : contact
     Created on : 22-feb-2012, 18:26:18
-    Author     : usuario
+    Author     : Cristian Martín
 --%>
 
 <%@page import="clases.Module"%>
@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Contact</title>
         <link href="css/reset-mayer.css" rel="stylesheet" title="default" type="text/css" />
         <link rel="stylesheet/less" type="text/css" href="css/style.less">
         <script src="jscripts/lessmin.js" type="text/javascript"></script>
@@ -62,17 +62,36 @@
                     }
                 }
                 %>
-                <%
-                Entry e = (Entry)session.getAttribute("entry");
                 
-       
-        out.println("<div id='entry'><h1 id='entrytitle'>"+e.getTitle()+
-        "</h1><div id='entrycontent'>"+e.getContent()+
-                "</div><div id='entrycreated'><b>Creado: </b>"+e.getCreated()+
-                "</div><div id='entryauthor'><b>Autor: </b>"+e.getAuthor().getName()+"</div></div>");
-                     
-        %>
-            </div>
+                <form action="controller?action=sendmail" method="post" id="contact"><fieldset><legend>Datos de contacto</legend>   
+                    <table>
+                        <tr>
+                            <td><label for="name">Nombre y apellidos : </label></td>
+                            <td><input type="text" name="name" size="30" maxlength="80"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email : </label></td>
+                            <td><input type="text" name="email" size="30" maxlength="60"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="tlf">Teléfono : </label></td>
+                            <td><input type="text" name="tlf" size="30" maxlength="60"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="subject">Asunto : </label></td>
+                            <td><input type="text" name="subject" size="30" maxlength="60"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="message">Mensaje : </label></td>
+                            <td><textarea name="message" cols="41" rows="5"></textarea></td>
+                        </tr>
+                    </table>
+
+            </fieldset>
+            <label for="send">
+            <input type="submit" name="send" value="Enviar datos"></label>
+            </form>
+          </div>
             <div class="clean"></div>
         </div>
         <div id="footer">

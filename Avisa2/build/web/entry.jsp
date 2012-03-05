@@ -15,7 +15,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
         <link href="css/reset-mayer.css" rel="stylesheet" title="default" type="text/css" />
-        <link href="css/style.css" rel="stylesheet" title="default" type="text/css" />
+        <link rel="stylesheet/less" type="text/css" href="css/style.less">
+        <script src="jscripts/lessmin.js" type="text/javascript"></script>
     </head>
     <body>
         
@@ -48,8 +49,6 @@
                     }
                 }
                 %>
-                <a href="backend.jsp">Backend</a>
-                <a href="home.jsp">Home</a>
             </div>
             <div id="content">
                 <%
