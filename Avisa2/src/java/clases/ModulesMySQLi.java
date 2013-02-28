@@ -19,7 +19,7 @@ public class ModulesMySQLi implements ModuleInterface{
 
     @Override
     public void newModule(Module m) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql="INSERT INTO module (`name`, `description`, `code`, `position`, `activity`, `order`) VALUES "+
                 "('"+m.getName()+"',"+
                 "'"+m.getDescription()+"', "+
@@ -36,7 +36,7 @@ public class ModulesMySQLi implements ModuleInterface{
 
     @Override
     public void editModule(Module m) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;
         int id=m.getId();  
         
@@ -58,7 +58,7 @@ public class ModulesMySQLi implements ModuleInterface{
 
     @Override
     public void deleteModule(Module m) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;  
         
         sql = "DELETE FROM module WHERE idmodule="+m.getId();          
@@ -71,7 +71,7 @@ public class ModulesMySQLi implements ModuleInterface{
     @Override
     public List<Module> getModules() {
         List<Module> lista = new ArrayList<Module>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM module ORDER BY `position` ASC, `activity` DESC, `order` ASC";
             ResultSet rs = bd.Select(sql);
         try {
@@ -101,7 +101,7 @@ public class ModulesMySQLi implements ModuleInterface{
 
     @Override
     public Module getModule(int id) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         Module mod=null;
         try {
             
@@ -131,7 +131,7 @@ public class ModulesMySQLi implements ModuleInterface{
     @Override
     public List<Module> getModules(String position) {
         List<Module> lista = new ArrayList<Module>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM module WHERE `position`='"+position+"' ORDER BY `order` ASC";
            System.err.println(sql);
             ResultSet rs = bd.Select(sql);
