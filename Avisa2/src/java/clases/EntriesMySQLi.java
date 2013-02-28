@@ -45,13 +45,13 @@ public class EntriesMySQLi implements EntryInterface{
         String sql;
         int id=e.getId();  
         
-        sql = "UPDATE entry SET identry="+
+        sql = "UPDATE entry SET id="+
                 e.getId()+", "+"title="+"'"+e.getTitle()+"'"+", "+
                 "content="+"'"+e.getContent()+"'"+", "+
                 "created="+"'"+e.getCreated()+"'"+", "+
                 "iduser="+"'"+e.getAuthor().getId()+"'"+
 
-                " WHERE identry="+id+" ";          
+                " WHERE id="+id+" ";          
  
                 
             System.out.println(sql);            
@@ -64,7 +64,7 @@ public class EntriesMySQLi implements EntryInterface{
         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;  
         
-        sql = "DELETE FROM entry WHERE identry="+e.getId();          
+        sql = "DELETE FROM entry WHERE id="+e.getId();          
             
             System.out.println(sql);            
             bd.Ejecuta(sql);
@@ -80,7 +80,7 @@ public class EntriesMySQLi implements EntryInterface{
         try {
         
             while (rs.next() ){
-                int id = rs.getInt("identry");
+                int id = rs.getInt("id");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 Date created = rs.getDate("created");
@@ -108,10 +108,10 @@ public class EntriesMySQLi implements EntryInterface{
         Entry ent = null;
         try {
             
-               String sql="SELECT * FROM entry WHERE identry="+id;
+               String sql="SELECT * FROM entry WHERE id="+id;
                 ResultSet rs = bd.Select(sql);
                 if(rs.next()){
-                id = rs.getInt("identry");
+                id = rs.getInt("id");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 Date created = rs.getDate("created");
