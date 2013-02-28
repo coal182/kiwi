@@ -20,7 +20,7 @@ public class SettingsMySQL implements SettingInterface{
 
     @Override
     public void editSetting(Setting s) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;
         int id=s.getId();  
         
@@ -38,7 +38,7 @@ public class SettingsMySQL implements SettingInterface{
 
     @Override
     public Setting getSetting(String name) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         Setting set = null;
         try {
             
@@ -66,7 +66,7 @@ System.err.println(sql);
     @Override
     public List<Setting> getSettings() {
         List<Setting> lista = new ArrayList<Setting>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM settings";
             ResultSet rs = bd.Select(sql);
         try {

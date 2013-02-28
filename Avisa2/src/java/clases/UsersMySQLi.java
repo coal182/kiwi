@@ -19,7 +19,7 @@ public class UsersMySQLi implements UserInterface{
     
         @Override
     public void newUser(User u) {
-         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+         BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql="INSERT INTO user (alias, password, name, usertype) VALUES "+
                 "('"+u.getAlias()+"',"+
                 "'"+u.getPassword()+"', "+
@@ -34,7 +34,7 @@ public class UsersMySQLi implements UserInterface{
 
     @Override
     public void editUser(User u) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;
         int id=u.getId();  
         
@@ -54,7 +54,7 @@ public class UsersMySQLi implements UserInterface{
 
     @Override
     public void deleteUser(User u) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;  
         
         sql = "DELETE FROM user WHERE iduser="+u.getId();          
@@ -67,7 +67,7 @@ public class UsersMySQLi implements UserInterface{
     @Override
     public List<User> getUsers() {
         List<User> lista = new ArrayList<User>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM user";
             ResultSet rs = bd.Select(sql);
         try {
@@ -95,7 +95,7 @@ public class UsersMySQLi implements UserInterface{
     @Override
     public List<User> getUsersFull() {
         List<User> lista = new ArrayList<User>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM user";
             ResultSet rs = bd.Select(sql);
         try {
@@ -123,7 +123,7 @@ public class UsersMySQLi implements UserInterface{
 
     @Override
     public User getUser(int id) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         User usr=null;
         try {
             
@@ -152,7 +152,7 @@ public class UsersMySQLi implements UserInterface{
     
     @Override
     public User getUser(String alias) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         User usr=null;
         try {
             

@@ -23,7 +23,7 @@ public class EntriesMySQLi implements EntryInterface{
         String content=e.getContent();
         content = content.replace("'", "''");
         e.setContent(content);
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql="INSERT INTO entry (title, content, created, iduser) VALUES "+
                 "('"+e.getTitle()+"',"+
                 "'"+e.getContent()+"', "+
@@ -41,7 +41,7 @@ public class EntriesMySQLi implements EntryInterface{
         String content=e.getContent();
         content = content.replace("'", "''");
         e.setContent(content);
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;
         int id=e.getId();  
         
@@ -61,7 +61,7 @@ public class EntriesMySQLi implements EntryInterface{
 
     @Override
     public void deleteEntry(Entry e) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         String sql;  
         
         sql = "DELETE FROM entry WHERE identry="+e.getId();          
@@ -74,7 +74,7 @@ public class EntriesMySQLi implements EntryInterface{
     @Override
     public List<Entry> getEntries() {
         List<Entry> lista = new ArrayList<Entry>();
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
            String sql="SELECT * FROM entry ORDER BY created DESC";
             ResultSet rs = bd.Select(sql);
         try {
@@ -104,7 +104,7 @@ public class EntriesMySQLi implements EntryInterface{
 
     @Override
     public Entry getEntry(int id) {
-        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "aula1-15");
+        BaseDatos bd = new BaseDatos(BaseDatos.MySQL, "localhost", "avisa2", "root", "coal182");
         Entry ent = null;
         try {
             
